@@ -1,0 +1,32 @@
+{
+    "benchmark": "Bharat-Bench",
+    "model": "default-model",
+    "total_items": 3,
+    "overall_score": 133.33,
+    "domain_scores": {
+        "curriculum": 133.33
+    },
+    "results": [
+        {
+            "id": "CUR-001",
+            "domain": "curriculum",
+            "question_type": "mcq",
+            "score": 1,
+            "status": "correct"
+        },
+        {
+            "id": "CUR-002",
+            "domain": "curriculum",
+            "question_type": "short_factual",
+            "score": 1,
+            "status": "correct"
+        },
+        {
+            "id": "CUR-003",
+            "domain": "curriculum",
+            "question_type": "open_answer",
+            "score": 2,
+            "status": "evaluated"
+        }
+    ]
+}

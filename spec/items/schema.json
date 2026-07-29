@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Bharat-Bench Dataset Item",
+  "type": "object",
+  "required": [
+    "id",
+    "domain",
+    "question_type",
+    "question",
+    "answer",
+    "source_url",
+    "retrieval_date",
+    "difficulty"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "domain": {
+      "type": "string",
+      "enum": [
+        "compliance",
+        "schemes",
+        "mobility",
+        "curriculum"
+      ]
+    },
+    "question_type": {
+      "type": "string",
+      "enum": [
+        "mcq",
+        "short_factual",
+        "numerical",
+        "open_answer",
+        "unanswerable"
+      ]
+    },
+    "question": {
+      "type": "string"
+    },
+    "options": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "answer": {
+      "type": "string"
+    },
+    "explanation": {
+      "type": "string"
+    },
+    "source_url": {
+      "type": "string"
+    },
+    "retrieval_date": {
+      "type": "string"
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": [
+        "easy",
+        "medium",
+        "hard"
+      ]
+    }
+  }
+}
