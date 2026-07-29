@@ -4,8 +4,10 @@ AI Evaluation Benchmark for India
 
 ## Live Demo
 
+
 🚀 Live Portfolio:
-bharat-bench.vercel.app
+https://bharat-bench-yk3326378-1023s-projects.vercel.app
+
 
 ## Features
 
