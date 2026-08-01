@@ -1,9 +1,10 @@
 def rubric_score(reference_answer, predicted_answer):
     """
     Rubric based scoring for open answers.
+
     Score:
-    4 = Strong match
-    2 = Partial match
+    2 = Strong match
+    1 = Partial match
     0 = Incorrect
     """
 
@@ -23,10 +24,8 @@ def rubric_score(reference_answer, predicted_answer):
             matched += 1
 
     if matched >= 5:
-        return 4
-
-    elif matched >= 2:
         return 2
-
+    elif matched >= 2:
+        return 1
     else:
         return 0

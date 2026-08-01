@@ -189,48 +189,34 @@ def evaluate_item(item, predicted_answer):
 # ============================================================
 # 5. CALCULATE DOMAIN-WISE SCORES
 # ============================================================
-
 def calculate_domain_scores(results):
-    """Calculate separate scores for each domain."""
-
-    domain_scores = {}
+    domain_data = {}
 
     for result in results:
+        domain = result["domain"]
+        score = result["score"]
 
-        domain = result.get(
-            "domain"
-        )
-
-        score = result.get(
-            "score"
-        )
-
-        if (
-            domain is None
-            or score is None
-        ):
+        if score is None:
             continue
 
-        if domain not in domain_scores:
+        if domain not in domain_data:
+            domain_data[domain] = {
+                "obtained": 0,
+                "maximum": 0
+            }
 
-            domain_scores[domain] = []
+        domain_data[domain]["obtained"] += score
 
-        domain_scores[domain].append(
-            score
-        )
-
+        if result["question_type"] == "open_answer":
+            domain_data[domain]["maximum"] += 2
+        else:
+            domain_data[domain]["maximum"] += 1
 
     final_scores = {}
 
-    for domain, scores in domain_scores.items():
-
-        average = (
-            sum(scores)
-            / len(scores)
-        )
-
+    for domain, data in domain_data.items():
         final_scores[domain] = round(
-            average * 100,
+            (data["obtained"] / data["maximum"]) * 100,
             2
         )
 
@@ -242,28 +228,26 @@ def calculate_domain_scores(results):
 # ============================================================
 
 def calculate_overall_score(results):
-    """Calculate overall Bharat-Bench score."""
-
-    scores = []
+    obtained = 0
+    maximum = 0
 
     for result in results:
-
         score = result.get("score")
 
-        if score is not None:
+        if score is None:
+            continue
 
-            if result.get("question_type") == "open_answer":
-                score = score / 4
+        obtained += score
 
-            scores.append(score)
+        if result["question_type"] == "open_answer":
+            maximum += 2
+        else:
+            maximum += 1
 
-    if not scores:
+    if maximum == 0:
         return 0
 
-    average = sum(scores) / len(scores)
-
-    return round(average * 100, 2)
-
+    return round((obtained / maximum) * 100, 2)
 
 # ============================================================
 # 7. SAVE RESULTS

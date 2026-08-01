@@ -2,31 +2,31 @@
     "benchmark": "Bharat-Bench",
     "model": "default-model",
     "total_items": 3,
-    "overall_score": 133.33,
+    "overall_score": 100.0,
     "domain_scores": {
-        "curriculum": 133.33
+        "schemes": 100.0
     },
     "results": [
         {
-            "id": "CUR-001",
-            "domain": "curriculum",
+            "id": "SCH-001",
+            "domain": "schemes",
             "question_type": "mcq",
             "score": 1,
             "status": "correct"
         },
         {
-            "id": "CUR-002",
-            "domain": "curriculum",
+            "id": "SCH-002",
+            "domain": "schemes",
             "question_type": "short_factual",
             "score": 1,
             "status": "correct"
         },
         {
-            "id": "CUR-003",
-            "domain": "curriculum",
-            "question_type": "open_answer",
-            "score": 2,
-            "status": "evaluated"
+            "id": "SCH-003",
+            "domain": "schemes",
+            "question_type": "mcq",
+            "score": 1,
+            "status": "correct"
         }
     ]
 }
